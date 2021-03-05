@@ -1,0 +1,10 @@
+<div class="period-select">
+    <h1><span class="icon-calendar active"></span> PERÍODO</h1>
+    <ul class="period-select_list">
+        <li class="period-select_item" [ngClass]="{'active': selected === '24h'}" (click)="sendFilter('24h')">24 horas</li>
+        <li class="period-select_item" [ngClass]="{'active': selected === '7d'}" (click)="sendFilter('7d')">7 dias</li>
+        <li class="period-select_item" [ngClass]="{'active': selected === '30d'}" (click)="sendFilter('30d')">30 dias</li>
+        <li class="period-select_item" [ngClass]="{'active': selected === '1y'}" (click)="sendFilter('1y')">12 meses</li>
+        <li class="period-select_item" [ngClass]="{'active': selected === 'all'}" (click)="sendFilter('all')">Todo o período</li>
+    </ul>
+</div>

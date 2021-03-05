@@ -1,0 +1,126 @@
+<section class="home container">
+    <app-status-bar [indicators]="indicators" (updateEvent)="update()"></app-status-bar>
+    <div class="page-head">
+        <app-page-title 
+            style="margin-right: 15%;" 
+            [title]="'ANÁLISES POR HABITAÇÃO'" 
+            [subtitle]="'Resumo com as principais informações geradas nas análises'" 
+            [icon]="'home'"
+        ></app-page-title>
+        <app-period-select style="margin-right: 30px;"></app-period-select>
+        <app-send-for-all [page]="'behavior'" [type]="'all'"></app-send-for-all>
+    </div>
+    <div class="animate__animated animate__slideInUp">
+        <div class="graph-row">
+            <div class="graph-char">
+                <h2>Característica da família em <span class="unit">{{ unitName }}</span></h2>
+                <div *ngIf="charData ? verifyObj(charData.groupCountMap) : false" [chart]="charChart"></div>
+                <div *ngIf="charData ? !verifyObj(charData.groupCountMap) : true" style="text-align: center;">
+                    <img src="assets/images/no-data.png" alt="" style="margin-top:30px;height: 151px;width: auto;">
+                </div>
+                <ul class="label" *ngIf="charData">
+                    <li *ngFor="let legend of createLegend(charData)">{{ legend }}</li>
+                </ul>
+            </div>
+            <div class="graph-care">
+                <h2>Pessoas do convívio tomam as precauções em <span class="unit">{{ unitName }}</span></h2>
+                <div *ngIf="careData ? verifyObj(careData.groupCountMap) : false" [chart]="careChart"></div>
+                <div *ngIf="careData ? !verifyObj(careData.groupCountMap) : true" style="text-align: center;">
+                    <img src="assets/images/no-data.png" alt="" style="margin-top:30px;height: 151px;width: auto;">
+                </div>
+                <ul class="label" *ngIf="careData">
+                    <li *ngFor="let legend of createLegend(careData)">{{ legend === 'true' ? 'sim' : 'não' }}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="graph-row">
+            <div class="graph-out">
+                <h2>Estiveram fora de casa nos últimos 3 dias em <span class="unit">{{ unitName }}</span></h2>
+                <div *ngIf="outData ? verifyObj(outData.groupCountMap) : false" [chart]="outChart"></div>
+                <div *ngIf="outData ? !verifyObj(outData.groupCountMap) : true" style="text-align: center;">
+                    <img src="assets/images/no-data.png" alt="" style="margin-top:30px;height: 151px;width: auto;">
+                </div>
+                <ul class="label" *ngIf="outData">
+                    <li *ngFor="let legend of createLegend(outData)">{{ legend === 'true' ? 'sim' : 'não' }}</li>
+                </ul>
+            </div>
+            <div class="graph-dist">
+                <h2>Conseguem manter distanciamento social em <span class="unit">{{ unitName }}</span></h2>
+                <div *ngIf="distData ? verifyObj(distData.groupCountMap) : false" [chart]="distChart"></div>
+                <div *ngIf="distData ? !verifyObj(distData.groupCountMap) : true" style="text-align: center;">
+                    <img src="assets/images/no-data.png" alt="" style="margin-top:30px;height: 151px;width: auto;">
+                </div>
+                <ul class="label" *ngIf="distData">
+                    <li *ngFor="let legend of createLegend(distData)">{{ legend === 'true' ? 'sim' : 'não' }}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="graph-row">
+            <div class="graph-trans">
+                <h2>Tipos de transporte utilizado pelos colaboradores em <span class="unit">{{ unitName }}</span></h2>
+                <div *ngIf="transData ? verifyObj(transData.groupCountMap) : false" [chart]="transChart"></div>
+                <div *ngIf="transData ? !verifyObj(transData.groupCountMap) : true" style="text-align: center;">
+                    <img src="assets/images/no-data.png" alt="" style="margin-top:30px;height: 151px;width: auto;">
+                </div>
+            </div>
+        </div>
+        <h2 *ngIf="charLists ? charLists.length : false">DETALHAMENTO DO GRÁFICO SOBRE CARACTERÍSTICAS DA FAMÍLIA</h2>
+        <div *ngFor="let type of charLists">
+            <app-drop-list
+                *ngIf="type.content.length"
+                [title]="type.type + ' em '" 
+                [unit]="unitName" 
+                [employees]="type.content"
+                [page]="'behavior'" 
+                [type]="'all-list'"
+                [list]="type.type"
+                [filter]="type.filter"
+            ></app-drop-list>
+        </div>
+        <h2 *ngIf="careLists ? careLists.length : false">DETALHAMENTO DO GRÁFICO SOBRE PRECAUÇÕES DAS PESSOAS DE CONVÍVIO</h2>
+        <app-drop-list
+            *ngFor="let type of careLists"
+            [title]="(type.type === 'true' ? 'tomam' : 'não tomam') + ' as precauções em '" 
+            [unit]="unitName" 
+            [employees]="type.content"
+            [page]="'behavior'" 
+            [type]="'all-list'"
+            [list]="type.type"
+            [filter]="type.filter"
+        ></app-drop-list>
+        <h2 *ngIf="outLists ? outLists.length : false">DETALHAMENTO DO GRÁFICO SOBRE COLABORADORES QUE ESTIVERAM FORA DE CASA NOS ÚLTIMOS DIAS</h2>
+        <app-drop-list
+            *ngFor="let type of outLists"
+            [title]="(type.type === 'true' ? 'estiveram' : 'não estiveram') + ' fora de casa em '" 
+            [unit]="unitName" 
+            [employees]="type.content"
+            [page]="'behavior'" 
+            [type]="'all-list'"
+            [list]="type.type"
+            [filter]="type.filter"
+        ></app-drop-list>
+        <h2 *ngIf="distLists ? distLists.length : false">DETALHAMENTO DO GRÁFICO SOBRE DISTANCIAMENTO SOCIAL</h2>
+        <app-drop-list
+            *ngFor="let type of distLists"
+            [title]="(type.type === 'true' ? 'conseguem' : 'não conseguem') + ' manter distanciamento social em '"  
+            [unit]="unitName" 
+            [employees]="type.content"
+            [page]="'behavior'" 
+            [type]="'all-list'"
+            [list]="type.type"
+            [filter]="type.filter"
+        ></app-drop-list>
+        <h2 *ngIf="transLists ? transLists.length : false">DETALHAMENTO DO GRÁFICO SOBRE OS MEIOS DE TRANSPORTES UTILIZADOS</h2>
+        <app-drop-list
+            *ngFor="let type of transLists"
+            [title]="type.type + ' em '" 
+            [unit]="unitName" 
+            [employees]="type.content"
+            [page]="'behavior'" 
+            [type]="'all-list'"
+            [list]="type.type"
+            [filter]="type.filter"
+        ></app-drop-list>
+        <div style="margin-bottom: 30px;"></div>
+    </div>
+</section>

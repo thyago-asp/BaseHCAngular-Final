@@ -1,0 +1,8 @@
+<app-header [username]="userName" [orgList]="orgList" [userType]="userType"></app-header>
+<app-navigator></app-navigator>
+<section id="admin-view" class="admin-view">
+    <router-outlet></router-outlet>
+    <img src="assets/images/logo-heart-care.svg" class="hc-logo" alt="Heart Care">
+    <small>Copyright © 2020 - Heart Care . A Health Care Company</small>
+</section>
+<app-message-modal id="msg-modal" class="animate__animated animate__fadeIn"></app-message-modal>

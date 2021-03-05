@@ -1,0 +1,26 @@
+<div class="admin-header">
+    <div class="admin-header_logo">
+        <img src="assets/images/logo-ctgbr-mask-2x.png" alt="Logo CTG Brasil - Covid-19 Triagem">
+    </div>
+
+    <div class="admin-header_action">
+        <div class="site-selector">
+            <div class="site-selector_icon icon-filter"></div>
+            <p>{{  selected }}</p>
+            <div class="icon-down-arrow"></div>
+            <ul class="selector">
+                <li class="selector-item" *ngFor="let org of orgList" (click)="sendFilter(org.idOrgUnit, org.orgUnitName)">{{ org.orgUnitName }}</li>
+                <li class="selector-item" (click)="sendFilter(0, 'todas as unidades')">todas as unidades</li>
+            </ul>
+        </div>
+
+        <div class="logged-user">
+            <div class="logged-user_avatar icon-avatar-{{ userType }}"></div>
+            <p>{{ username }}</p>
+            <div class="icon-down-arrow"></div>
+            <ul class="selector-user">
+                <li class="selector-item" (click)="logout()">Sair</li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,88 @@
+.login {
+    &-content {
+        padding-top: 8%;
+        margin-bottom: 100px;
+        &_banner {
+            width: 55%;
+            display: inline-block;
+        }
+        &_form {
+            width: 45%;
+            display: inline-block;
+            text-align: right;
+            vertical-align: top;
+            &-holder {
+                max-width: 370px;
+                text-align: left;
+                display: inline-block;
+            }
+            &-group {
+                width: 91%;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px 3px rgba(0, 0, 0, 0.05);
+                border: solid 1px #ebeaea;
+                background-color: #ffffff;
+                padding: 0 15px;
+                margin-bottom: 24px;
+            }
+            &-field {
+                padding-top: 15px;
+                padding-left: 40px;
+                padding-right: 40px;
+                height: 45px;
+                border-bottom: 1px solid #ebeaea;
+                position: relative;
+                &:last-child {
+                    border: none;
+                }
+                input:focus + label,
+                input:valid + label,
+                input.filled + label {
+                    top: 10px;
+                }
+                label {
+                    line-height: 16px;
+                    font-size: 14px;
+                    font-weight: 300;
+                    display: block;
+                    margin-bottom: 5px;
+                    position: absolute;
+                    top: 25px;
+                    transition: .2s ease-in-out;
+                }
+                input {
+                    border: none;
+                    width: 100%;
+                    margin-top: 12px;
+                }
+                .field-icon {
+                    position: absolute;
+                    top: 20px;
+                    left: 5px;
+                }
+                .info-icon {
+                    position: absolute;
+                    top: 25px;
+                    right: 5px;
+                }
+            }
+            &-action {
+                .btn-primary {
+                    margin-right: 30px;
+                }
+            }
+            &-forgot {
+                font-weight: 300;
+                color: #1178c4;
+                font-size: 14px;
+            }
+        }
+    }
+    .error-input {
+        color: #d0021b;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 16px;
+        margin-bottom: 10px;
+    }
+}

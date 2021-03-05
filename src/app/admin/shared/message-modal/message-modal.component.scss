@@ -1,0 +1,55 @@
+.modal {
+    &-overlay {
+        width: 100vw;
+        height: 100vh;
+        background-color: #000000;
+        position: fixed;
+        top: 0;
+        left: 0;
+        opacity: 0.5;
+        z-index: 99;
+    }
+    &-body {
+        width: 651px;
+        height: 335px;
+        background-color: #ffffff;
+        position: fixed;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 5px;
+        box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.1);
+        padding: 18px 21px 13px 20px;
+        z-index: 999;
+        &_title {
+            position: relative;
+            h2 {
+                color: #238db6;
+                font-size: 12px;
+                margin-bottom: 30px;
+            }
+            .icon-modal-close {
+                cursor: pointer;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+        }
+        &_action {
+            .icon-modal-send {
+                float: right;
+                cursor: pointer;
+            }
+        }
+        p {
+            font-size: 10px;
+            color: #a5a5a5;
+        }
+    }
+}
+textarea {
+    resize: none;
+    border: solid 2px #dddade;
+    border-radius: 5px;
+    margin-bottom: 13px;
+}

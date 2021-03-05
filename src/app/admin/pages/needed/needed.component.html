@@ -1,0 +1,27 @@
+<section class="home container">
+    <app-status-bar [indicators]="indicators" (updateEvent)="update()"></app-status-bar>
+    <div class="page-head">
+        <app-page-title 
+            style="margin-right: 150px;"
+            [title]="'COLABORADORES QUE NECESSITAM FAZER O TESTE'" 
+            [subtitle]="'Resumo com as principais informações geradas nas análises'" 
+            [icon]="'test-needed'"
+        ></app-page-title>
+        <app-period-select style="margin-right: 30px;"></app-period-select>
+        <app-send-for-all [page]="'needed'" [type]="'all'"></app-send-for-all>
+    </div>
+    <div class="animate__animated animate__slideInUp">
+        <h2>Detalhamento de colaboradores que necessitam fazer teste</h2>
+        <app-drop-list
+            *ngIf="infectedList"
+            [title]="'Necessitam fazer o teste em '" 
+            [unit]="unitName" 
+            [employees]="infectedList.content"
+            [page]="'needed'" 
+            [type]="'all-list'"
+            [list]="type"
+            [filter]="filterList"
+        ></app-drop-list>
+        <div style="margin-bottom: 30px;"></div>
+    </div>
+</section>

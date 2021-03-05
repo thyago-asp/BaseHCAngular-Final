@@ -1,0 +1,37 @@
+<section class="home container">
+    <app-status-bar [indicators]="indicators" (updateEvent)="update()"></app-status-bar>
+    <div class="page-head">
+        <app-page-title 
+            style="margin-right: 15%;" 
+            [title]="'COLABORADORES'" 
+            [subtitle]="'Resumo com as principais informações geradas nas análises'" 
+            [icon]="'workers'"
+        ></app-page-title>
+        <app-period-select style="margin-right: 30px;"></app-period-select>
+        <app-send-for-all [page]="'list'" [type]="'all'"></app-send-for-all>
+    </div>
+    <div class="animate__animated animate__slideInUp">
+        <div class="employees-chart">
+            <h2>Tipo de colaboradores <span>{{ unitName }}</span></h2>
+            <div *ngIf="employees ? verifyObj(employees.groupCountMap) : false" [chart]="chart"></div>
+            <div *ngIf="employees ? !verifyObj(employees.groupCountMap) : true" style="text-align: center;">
+                <img src="assets/images/no-data.png" alt="" style="margin-top:30px;height: 151px;width: auto;">
+            </div>
+            <ul class="label" *ngIf="employees">
+                <li *ngFor="let legend of createLegend(employees)">{{ legend }}</li>
+            </ul>
+        </div>
+        <h2 class="title">DETALHAMENTO INDIVIDUAL DO GRÁFICO DE COLABORADORES</h2>
+        <app-drop-list
+            *ngFor="let type of employeesLists"
+            [title]="type.type + ' em '" 
+            [unit]="unitName" 
+            [employees]="type.content" 
+            [page]="'list'" 
+            [type]="'all-list'"
+            [list]="type.type"
+            [filter]="type.filter"
+        ></app-drop-list>
+        <div style="margin-bottom: 30px;"></div>
+    </div>
+</section>

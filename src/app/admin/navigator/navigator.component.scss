@@ -1,0 +1,49 @@
+.navigator {
+    display: inline-block;
+    height: calc(100vh - 73px);
+    border-right: solid 0.5px #c7c7c7;
+    overflow: hidden;
+    padding-top: 9px;
+    position: fixed;
+    width: 244px;
+    transition: all 0.7s ease;
+    background-color: #f8fafb;
+    &.hide {
+        width: 40px;
+        transition: all 0.7s ease;
+        .navigator-item {
+            p {
+                display: none;
+            }
+        }
+    }
+    &-item {
+        padding-top: 13px;
+        padding-bottom: 13px;
+        padding-right: 8px;
+        cursor: pointer;
+        width: 244px;
+        &:hover {
+            background-color: #e3e7e8;
+        }
+        &_icon {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        &.active {
+            p {
+                color: #0880ae;
+                font-weight: 600;
+            }
+        }
+        p {
+            display: inline-block;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #a5a5a5;
+            letter-spacing: 0.12px;
+        }
+    }
+}

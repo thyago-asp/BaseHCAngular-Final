@@ -1,0 +1,79 @@
+<section class="home container">
+    <app-status-bar [indicators]="indicators" (updateEvent)="update()"></app-status-bar>
+    <div class="page-head">
+        <app-page-title 
+            style="margin-right: 15%;" 
+            [title]="'COLABORADORES EM NÍVEL DE RISCO'" 
+            [subtitle]="'Resumo com as principais informações geradas nas análises'" 
+            [icon]="'risk'"
+        ></app-page-title>
+        <app-period-select style="margin-right: 30px;"></app-period-select>
+        <app-send-for-all [page]="'risk'" [type]="'all'"></app-send-for-all>
+    </div>
+    <div class="animate__animated animate__slideInUp">
+        <div class="graph-row">
+            <div class="graph-risk">
+                <h2>Níveis de risco em <span class="unit">{{ unitName }}</span></h2>
+                <div *ngIf="comorbiditiesData ? comorbiditiesData.groupCountList.length : false" [chart]="comorbiditiesChart"></div>
+                <div *ngIf="comorbiditiesData ? !comorbiditiesData.groupCountList.length : true" style="text-align: center;">
+                    <img src="assets/images/no-data.png" alt="" style="margin-top:30px;height: 151px;width: auto;">
+                </div>
+                <ul class="label" *ngIf="comorbiditiesData">
+                    <li *ngFor="let legend of createListLegend(comorbiditiesData)">{{ legend }}</li>
+                </ul>
+            </div>
+            <div class="graph-factor">
+                <h2>Fatores de risco em <span class="unit">{{ unitName }}</span></h2>
+                <div *ngIf="riskData ? verifyObj(riskData.groupCountMap) : false" [chart]="riskChart"></div>
+                <div *ngIf="riskData ? !verifyObj(riskData.groupCountMap) : true" style="text-align: center;">
+                    <img src="assets/images/no-data.png" alt="" style="margin-top:30px;height: 151px;width: auto;">
+                </div>
+            </div>
+        </div>
+        <div class="graph-row">
+            <div class="graph-health">
+                <h2>Doenças pré existentes em <span class="unit">{{ unitName }}</span></h2>
+                <div *ngIf="healthData ? verifyObj(healthData.groupCountMap) : false" [chart]="healthChart"></div>
+                <div *ngIf="healthData ? !verifyObj(healthData.groupCountMap) : true" style="text-align: center;">
+                    <img src="assets/images/no-data.png" alt="" style="margin-top:30px;height: 151px;width: auto;">
+                </div>
+            </div>
+        </div>
+        <h2 *ngIf="comorbiditiesLists ? comorbiditiesLists.length : false">DETALHAMENTO DO GRÁFICO POR NÍVEL DE RISCO</h2>
+        <app-drop-list
+            *ngFor="let type of comorbiditiesLists"
+            [title]="type.type.label + ' em '" 
+            [unit]="unitName" 
+            [employees]="type.content"
+            [page]="'risk'" 
+            [type]="'all-list'"
+            [list]="type.type"
+            [filter]="type.filter"
+        ></app-drop-list>
+        <h2 *ngIf="riskLists ? riskLists.length : false">DETALHAMENTO DO GRÁFICO POR FATORES DE RISCO</h2>
+        <div *ngFor="let type of riskLists">
+            <app-drop-list
+                *ngIf="type.content.length"
+                [title]="type.type + ' em '" 
+                [unit]="unitName" 
+                [employees]="type.content"
+                [page]="'risk'" 
+                [type]="'all-list'"
+                [list]="type.type"
+                [filter]="type.filter"
+        ></app-drop-list>
+        </div>
+        <h2 *ngIf="healthLists ? healthLists.length : false">DETALHAMENTO DO GRÁFICO SOBRE DOENÇAS PRÉ-EXISTENTES</h2>
+        <app-drop-list
+            *ngFor="let type of healthLists"
+            [title]="type.type + ' em '" 
+            [unit]="unitName" 
+            [employees]="type.content"
+            [page]="'risk'" 
+            [type]="'all-list'"
+            [list]="type.type"
+            [filter]="type.filter"
+        ></app-drop-list>
+        <div style="margin-bottom: 30px;"></div>
+    </div>
+</section>

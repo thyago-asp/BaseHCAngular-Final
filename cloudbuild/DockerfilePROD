@@ -1,0 +1,11 @@
+FROM node:14-slim as node
+WORKDIR /app
+COPY package.json /app/
+RUN npm i npm@latest -g
+RUN npm install
+COPY ./ /app/
+RUN npm run build-prod
+
+FROM nginx:1.19.3
+COPY --from=node /app/dist/hcfp-corp-admin /usr/share/nginx/html
+COPY ./cloudbuild/nginx-custom.conf /etc/nginx/conf.d/default.conf

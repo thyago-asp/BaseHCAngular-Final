@@ -1,0 +1,142 @@
+.drop-list {
+    &.active {
+        .drop-list_head {
+            .drop-list_icon {
+                background-image: url('~/assets/images/listagem-down-arrow-collapse-blue.png');
+            }
+        }
+        .drop-list_body {
+            height: auto;
+            padding-top: 20px;
+        }
+    }
+    &_head {
+        width: 755px;
+        height: 51px;
+        padding: 6px 22px 6px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.05);
+        background-color: #ffffff;
+        position: relative;
+        .drop-list_name {
+            font-size: 11px;
+            line-height: 51px;
+            letter-spacing: 0.12px;
+            color: #9b9b9b;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            .drop-list_icon {
+                position: absolute;
+                top: 22px;
+                right: -40px;
+            }
+            .unit {
+                color: #1385b1;
+            }
+        }
+        app-send-for-all {
+            position: absolute;
+            top: 15px;
+            right: -100px;
+        }
+    }
+    &_body {
+        height: 0px;
+        overflow: hidden;
+        padding: 0px 0;
+    }
+    &_employee {
+        width: 793px;
+        position: relative;
+        padding-top: 6px;
+        padding-left: 6px;
+        padding-bottom: 6px;
+        &:hover {
+            border-radius: 29.5px;
+            box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.05);
+            background-color: #ffffff;
+            .employee-send {
+                h1 {
+                    color: #258eb6;
+                }
+                p {
+                    color: #258eb6;
+                }
+            }
+        }
+        .employee-name {
+            width: 47px;
+            height: 47px;
+            border: solid 1px rgba(155, 155, 155, 0.18);
+            background-image: linear-gradient(135deg, #e877ff, #c86dd7 102%);
+            border-radius: 50%;
+            display: inline-block;font-size: 20px;
+            line-height: 47px;
+            text-align: center;
+            letter-spacing: 0.24px;
+            color: #ffffff;
+            &.man {
+                background-image: linear-gradient(to bottom, #1082c8, #2c1cf7);
+            }
+        }
+        .employee-data {
+            display: inline-block;
+            margin-left: 10px;
+            vertical-align: middle;
+            padding-bottom: 3px;
+            p {
+                font-size: 11px;
+                line-height: normal;
+                letter-spacing: 0.12px;
+                color: #a5a5a5;
+                width: 570px;
+            }
+        }
+        .employee-send {
+            display: inline-block;
+            cursor: pointer;
+            position: absolute;
+            top: 14px;
+            right: 20px;
+            h1 {
+                font-size: 12px;
+                line-height: normal;
+                color: #9b9b9b;
+                position: relative;
+                padding-left: 23px;
+                margin-bottom: 6px;
+                .icon-send {
+                    position: absolute;
+                    top: -2px;
+                    left: 0;
+                }
+                &::before {
+                    content: '';
+                    width: 1px;
+                    height: 13px;
+                    background-color: #979797;
+                    position: absolute;
+                    top: 10px;
+                    left: -15px;
+                }
+            }
+            p {
+                font-size: 11px;
+                line-height: normal;
+                font-weight: 300;
+                letter-spacing: 0.12px;
+                color: #a7a5a8;
+                margin-left: 23px;
+            }
+        }
+    }
+    hr {
+        width: 800px;
+        margin: 0;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-top: solid 0.5px #c7c7c7;
+    }
+}

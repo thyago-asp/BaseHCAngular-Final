@@ -1,0 +1,92 @@
+.home {
+    h2 {
+        font-size: 12px;
+        line-height: normal;
+        color: #0880ae;
+        position: relative;
+        margin-bottom: 6px;
+        text-transform: uppercase;
+        margin-top: 30px;
+        margin-bottom: 15px;
+    }
+    .graph {
+        &-row {
+            margin-top: 20px;
+        }
+        &-bar {
+            width: 100%;
+            display: inline-block;
+            vertical-align: top;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.05);
+            background-color: #ffffff;
+            height: 350px;
+            h2 {
+                font-size: 10px;
+                line-height: 12px;
+                letter-spacing: 0.12px;
+                color: #a5a5a5;
+                margin-left: 30px;
+                margin-top: 18px;
+                .unit {
+                    color: #0880ae;
+                }
+            }
+        }
+        &-pie {
+            width: 56%;
+            display: inline-block;
+            vertical-align: top;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.05);
+            background-color: #ffffff;
+            height: 350px;
+            h2 {
+                font-size: 10px;
+                line-height: 12px;
+                letter-spacing: 0.12px;
+                color: #a5a5a5;
+                margin-left: 30px;
+                margin-top: 18px;
+                .unit {
+                    color: #0880ae;
+                }
+            }
+            .label {
+                li {
+                    font-size: 9px;
+                    letter-spacing: 0.11px;
+                    color: #a5a5a5;
+                    text-transform: uppercase;
+                    display: inline-block;
+                    margin-right: 0px;
+                    position: relative;
+                    &:nth-child(1) {
+                        margin-left: 40px;
+                        &:before {
+                            content: '';
+                            width: 10px;
+                            height: 10px;
+                            background-color: #388dab;
+                            position: absolute;
+                            top: 0px;
+                            left: -15px;
+                        }
+                    }
+                    &:nth-child(2) {
+                        margin-left: 40px;
+                        &:before {
+                            content: '';
+                            width: 10px;
+                            height: 10px;
+                            background-color: #11b7f1;
+                            position: absolute;
+                            top: 0px;
+                            left: -15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,75 @@
+/* You can add global styles to this file, and also import other style files */
+
+* {
+    font-family: Roboto;
+    transition: all 0.3s ease;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+body {
+    background-color: #f8fafb;
+}
+
+.container {
+    width: 1074px;
+    margin: auto;
+    padding: 0 10px;
+}
+
+%btn {
+    display: inline-block;
+    padding: 0 29px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 38px;
+    font-family: Roboto;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    border-radius: 5px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    border: none;
+}
+
+.btn-primary {
+    @extend %btn;
+    background-color: #1178c4;
+    color: #ffffff;
+    &:hover {
+        background-color: #0c62a0;
+    }
+    &[disabled] {
+        opacity: 0.5;
+    }
+}
+
+.btn-secondary {
+    @extend %btn;
+    background-color: #FFFFFF;
+    color: #1178c4;
+    border: solid 1px #ebeaea;
+    &:hover {
+        background-color: #e7e5e5;
+    }
+}
+
+.swal2-popup .swal2-title,
+.swal2-popup #swal2-content {
+    font-family: Roboto;
+}
+
+app-page-title {
+    display: inline-block;
+}

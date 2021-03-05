@@ -1,0 +1,82 @@
+<section class="home container">
+    <app-status-bar [indicators]="indicators" (updateEvent)="update()"></app-status-bar>
+    <div class="page-head">
+        <app-page-title 
+            style="margin-right: 200px;"
+            [title]="'PROBABILIDADE DE INFECÇÃO'" 
+            [subtitle]="'Resumo com as principais informações geradas nas análises'" 
+            [icon]="'probability'"
+        ></app-page-title>
+        <app-period-select style="margin-right: 30px;"></app-period-select>
+        <app-send-for-all [page]="'probability'" [type]="'all'"></app-send-for-all>
+    </div>
+    <div class="animate__animated animate__slideInUp">
+        <div class="graph-row">
+            <div class="graph-prob">
+                <h2>Probabilidades em <span class="unit">{{ unitName }}</span></h2>
+                <div *ngIf="probData ? probData.groupCountList.length : false" [chart]="probChart"></div>
+                <div *ngIf="probData ? !probData.groupCountList.length : true" style="text-align: center;">
+                    <img src="assets/images/no-data.png" alt="" style="margin-top:30px;height: 151px;width: auto;">
+                </div>
+                <ul class="label" *ngIf="probData">
+                    <li *ngFor="let legend of createListLegend(probData)">{{ legend }}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="graph-row">
+            <div class="graph-critical">
+                <h2>Aumento rápido dos sintomas em <span class="unit">{{ unitName }}</span></h2>
+                <div *ngIf="criticalData ? verifyObj(criticalData.groupCountMap) : false" [chart]="criticalChart"></div>
+                <div *ngIf="criticalData ? !verifyObj(criticalData.groupCountMap) : true" style="text-align: center;">
+                    <img src="assets/images/no-data.png" alt="" style="margin-top:30px;height: 151px;width: auto;">
+                </div>
+                <ul class="label" *ngIf="criticalData">
+                    <li *ngFor="let legend of createLegend(criticalData)">{{ legend === 'true' ? 'sim' : 'não' }}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="graph-row">
+            <div class="graph-symp">
+                <h2>Principais sintomas em <span class="unit">{{ unitName }}</span></h2>
+                <div *ngIf="sympData ? sympData.groupCountList.length : false" [chart]="sympChart"></div>
+                <div *ngIf="sympData ? !sympData.groupCountList.length : true" style="text-align: center;">
+                    <img src="assets/images/no-data.png" alt="" style="margin-top:30px;height: 151px;width: auto;">
+                </div>
+            </div>
+        </div>
+        <h2 *ngIf="probLists ? probLists.length : false">DETALHAMENTO DO GRÁFICO POR PROBABILIDADE DE INFECÇÃO</h2>
+        <app-drop-list
+            *ngFor="let type of probLists"
+            [title]="type.type + ' em '" 
+            [unit]="unitName" 
+            [employees]="type.content"
+            [page]="'probability'" 
+            [type]="'all-list'"
+            [list]="type.type"
+            [filter]="type.filter"
+        ></app-drop-list>
+        <h2 *ngIf="criticalLists ? criticalLists.length : false">DETALHAMENTO DO GRÁFICO POR AUMENTO DOS SINTOMAS</h2>
+        <app-drop-list
+            *ngFor="let type of criticalLists"
+            [title]="type.type === 'false' ? 'não percebem o aumento dos sintomas em ' : '' + ' percebem o aumento dos sintomas em '" 
+            [unit]="unitName" 
+            [employees]="type.content"
+            [page]="'probability'" 
+            [type]="'all-list'"
+            [list]="type.type"
+            [filter]="type.filter"
+        ></app-drop-list>
+        <h2 *ngIf="sympLists ? sympLists.length : false">DETALHAMENTO DO GRÁFICO POR SINTOMA REPORTADO</h2>
+        <app-drop-list
+            *ngFor="let type of sympLists"
+            [title]="type.type + ' em '" 
+            [unit]="unitName" 
+            [employees]="type.content"
+            [page]="'probability'" 
+            [type]="'all-list'"
+            [list]="type.type"
+            [filter]="type.filter"
+        ></app-drop-list>
+        <div style="margin-bottom: 30px;"></div>
+    </div>
+</section>

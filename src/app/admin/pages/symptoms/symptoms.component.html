@@ -1,0 +1,36 @@
+<section class="home container">
+    <app-status-bar [indicators]="indicators" (updateEvent)="update()"></app-status-bar>
+    <div class="page-head">
+        <app-page-title 
+            style="margin-right: 15%;" 
+            [title]="'SINTOMAS DE OUTRAS DOENÇAS'" 
+            [subtitle]="'Resumo com as principais informações geradas nas análises'" 
+            [icon]="'symptoms'"
+        ></app-page-title>
+        <app-period-select style="margin-right: 30px;"></app-period-select>
+        <app-send-for-all [page]="'symptoms'" [type]="'all'"></app-send-for-all>
+    </div>
+    <div class="animate__animated animate__slideInUp">
+        <div class="graph-row">
+            <div class="graph-symp">
+                <h2>Colaboradores com sintomas de outras síndromes ou doenças em <span class="unit">{{ unitName }}</span></h2>
+                <div *ngIf="symptomsData ? verifyObj(symptomsData.groupCountMap) : false" [chart]="sympChart"></div>
+                <div *ngIf="symptomsData ? !verifyObj(symptomsData.groupCountMap) : true" style="text-align: center;">
+                    <img src="assets/images/no-data.png" alt="" style="margin-top:30px;height: 151px;width: auto;">
+                </div>
+            </div>
+        </div>
+        <h2 *ngIf="sympLists ? sympLists.length : false">DETALHAMENTO DO GRÁFICO SOBRE SINTOMAS DE OUTRAS DOENÇAS</h2>
+        <app-drop-list
+            *ngFor="let type of sympLists"
+            [title]="type.type + ' em '" 
+            [unit]="unitName" 
+            [employees]="type.content"
+            [page]="'symptoms'" 
+            [type]="'all-list'"
+            [list]="type.type"
+            [filter]="type.filter"
+        ></app-drop-list>
+        <div style="margin-bottom: 30px;"></div>
+    </div>
+</section>

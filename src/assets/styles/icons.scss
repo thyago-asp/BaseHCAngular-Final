@@ -1,0 +1,282 @@
+%icon {
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.icon {
+    &-user {
+        width: 22px;
+        height: 22px;
+        background-image: url('../../assets/images/ico-login-register-user.svg');
+        @extend %icon;
+    }
+    &-password {
+        width: 22px;
+        height: 22px;
+        background-image: url('../../assets/images/ico-login-register-password.svg');
+        @extend %icon;
+    }
+    &-check {
+        width: 19px;
+        height: 19px;
+        background-image: url('../../assets/images/ico-login-register-check.svg');
+        @extend %icon;
+    }
+    &-eye {
+        width: 19px;
+        height: 12px;
+        background-image: url('../../assets/images/ico-login-register-eye.svg');
+        @extend %icon;
+    }
+    &-email {
+        width: 22px;
+        height: 22px;
+        background-image: url('../../assets/images/ico-login-register-email.svg');
+        @extend %icon;
+    }
+    &-triage {
+        width: 17px;
+        height: 23px;
+        background-image: url('../../assets/images/ico-triage.svg');
+        @extend %icon;
+    }
+    &-checkup {
+        width: 73px;
+        height: 86px;
+        background-image: url('../../assets/images/shield.svg');
+        @extend %icon;
+    }
+    &-download {
+        width: 22px;
+        height: 19px;
+        background-image: url('../../assets/images/ico-download.svg');
+        @extend %icon;
+    }
+    &-trash {
+        width: 16px;
+        height: 19px;
+        background-image: url('../../assets/images/ico-trash.svg');
+        @extend %icon;
+    }
+    &-exit {
+        width: 20px;
+        height: 19px;
+        background-image: url('../../assets/images/logout.svg');
+        @extend %icon;
+    }
+    &-down-arrow {
+        width: 11px;
+        height: 8px;
+        background-image: url('../../assets/images/down-arrow.svg');
+        @extend %icon;
+    }
+    &-avatar-doctor {
+        width: 30px;
+        height: 30px;
+        background-image: url('../../assets/images/avatar-doctor.svg');
+        @extend %icon;
+    }
+    &-avatar-manager {
+        width: 30px;
+        height: 30px;
+        background-image: url('../../assets/images/avatar-manager.svg');
+        @extend %icon;
+    }
+    &-filter {
+        width: 23px;
+        height: 24px;
+        background-image: url('../../assets/images/filter.svg');
+        @extend %icon;
+    }
+    &-analytics {
+        width: 18px;
+        height: 18px;
+        background-image: url('../../assets/images/menu-home-analytics-grey.png');
+        @extend %icon;
+        &.active {
+            background-image: url('../../assets/images/menu-home-analytics-blue.png');
+        }
+    }
+    &-workers {
+        width: 18px;
+        height: 18px;
+        background-image: url('../../assets/images/menu-colaboradores-grey.png');
+        @extend %icon;
+        &.active {
+            background-image: url('../../assets/images/menu-lista-colaboradores-blue.png');
+        }
+    }
+    &-infected {
+        width: 18px;
+        height: 18px;
+        background-image: url('../../assets/images/menu-colaboradores-infectados-grey.png');
+        @extend %icon;
+        &.active {
+            background-image: url('../../assets/images/menu-colaboradores-infectados-blue.png');
+        }
+    }
+    &-tested {
+        width: 18px;
+        height: 18px;
+        background-image: url('../../assets/images/menu-realizaram-teste-grey.png');
+        @extend %icon;
+        &.active {
+            background-image: url('../../assets/images/menu-realizaram-teste-blue.png');
+        }
+    }
+    &-test-needed {
+        width: 18px;
+        height: 18px;
+        background-image: url('../../assets/images/menu-necessitam-teste-grey.png');
+        @extend %icon;
+        &.active {
+            background-image: url('../../assets/images/menu-necessitam-teste-blue.png');
+        }
+    }
+    &-probability {
+        width: 18px;
+        height: 18px;
+        background-image: url('../../assets/images/menu-probabilidades-infeccao-grey.png');
+        @extend %icon;
+        &.active {
+            background-image: url('../../assets/images/menu-probabilidades-infeccao-blue.png');
+        }
+    }
+    &-contacted {
+        width: 18px;
+        height: 18px;
+        background-image: url('../../assets/images/menu-contato-infectados-grey.png');
+        @extend %icon;
+        &.active {
+            background-image: url('../../assets/images/menu-contato-infectados-blue.png');
+        }
+    }
+    &-risk {
+        width: 18px;
+        height: 18px;
+        background-image: url('../../assets/images/menu-nivel-de-risco-grey.png');
+        @extend %icon;
+        &.active {
+            background-image: url('../../assets/images/menu-nivel-de-risco-blue.png');
+        }
+    }
+    &-symptoms {
+        width: 18px;
+        height: 18px;
+        background-image: url('../../assets/images/menu-sintomas-outras-doencas-grey.png');
+        @extend %icon;
+        &.active {
+            background-image: url('../../assets/images/menu-sintomas-outras-doencas-blue.png');
+        }
+    }
+    &-gender {
+        width: 18px;
+        height: 18px;
+        background-image: url('../../assets/images/menu-genero-grey.png');
+        @extend %icon;
+        &.active {
+            background-image: url('../../assets/images/menu-genero-blue.png');
+        }
+    }
+    &-home {
+        width: 18px;
+        height: 18px;
+        background-image: url('../../assets/images/menu-moradia-comportamento-grey.png');
+        @extend %icon;
+        &.active {
+            background-image: url('../../assets/images/menu-moradia-comportamento-blue.png');
+        }
+    }
+    &-workplace {
+        width: 18px;
+        height: 18px;
+        background-image: url('../../assets/images/menu-onde-trabalham-grey.png');
+        @extend %icon;
+        &.active {
+            background-image: url('../../assets/images/menu-onde-trabalham-blue.png');
+        }
+    }
+    &-hygiene {
+        width: 18px;
+        height: 18px;
+        background-image: url('../../assets/images/menu-medicamentos-epis-grey.png');
+        @extend %icon;
+        &.active {
+            background-image: url('../../assets/images/menu-medicamentos-epis-blue.png');
+        }
+    }
+    &-other-analytics {
+        width: 18px;
+        height: 18px;
+        background-image: url('../../assets/images/menu-outras-analises-grey.png');
+        @extend %icon;
+        &.active {
+            background-image: url('../../assets/images/menu-outras-analises-blue.png');
+        }
+    }
+    &-engage {
+        width: 18px;
+        height: 18px;
+        background-image: url('../../assets/images/menu-engajamento-grey.png');
+        @extend %icon;
+        &.active {
+            background-image: url('../../assets/images/menu-engajamento-blue.png');
+        }
+    }
+    &-menu {
+        width: 19px;
+        height: 14px;
+        background-image: url('../../assets/images/header-sandwich-grey.png');
+        @extend %icon;
+        &:hover {
+            background-image: url('../../assets/images/header-sandwich-blue.png');
+        }
+    }
+    &-update {
+        width: 19px;
+        height: 19px;
+        background-image: url('../../assets/images/header-reload-grey.png');
+        @extend %icon;
+        &:hover {
+            background-image: url('../../assets/images/header-reload-blue.png');
+        }
+    }
+    &-infected-red {
+        width: 19px;
+        height: 19px;
+        background-image: url('../../assets/images/header-virus-header-red.png');
+        @extend %icon;
+    }
+    &-calendar {
+        width: 19px;
+        height: 19px;
+        background-image: url('../../assets/images/header-calendario-blue.png');
+        @extend %icon;
+    }
+    &-send {
+        width: 19px;
+        height: 19px;
+        background-image: url('../../assets/images/header-enviar-mensagem-blue.png');
+        @extend %icon;
+    }
+    &-drop {
+        width: 12px;
+        height: 7px;
+        background-image: url('../../assets/images/listagem-down-arrow-collapse-grey.png');
+        @extend %icon;
+        &.active {
+            background-image: url('../../assets/images/listagem-down-arrow-collapse-blue.png');
+        }
+    }
+    &-modal-close {
+        width: 25px;
+        height: 25px;
+        background-image: url('../../assets/images/modal-fechar-blue.png');
+        @extend %icon;
+    }
+    &-modal-send {
+        width: 25px;
+        height: 25px;
+        background-image: url('../../assets/images/modal-enviar-blue.png');
+        @extend %icon;
+    }
+}

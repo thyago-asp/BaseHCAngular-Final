@@ -1,0 +1,57 @@
+<section class="home container">
+    <app-status-bar [indicators]="indicators" (updateEvent)="update()"></app-status-bar>
+    <div class="page-head">
+        <app-page-title 
+            style="margin-right: 15%;" 
+            [title]="'COLABORADORES QUE JÁ REALIZARAM TESTE'" 
+            [subtitle]="'Resumo com as principais informações geradas nas análises'" 
+            [icon]="'tested'"
+        ></app-page-title>
+        <app-period-select style="margin-right: 30px;"></app-period-select>
+        <app-send-for-all [page]="'tested'" [type]="'all'"></app-send-for-all>
+    </div>
+    <div class="animate__animated animate__slideInUp">
+        <div class="graph-row">
+            <div class="graph-bar">
+                <h2>Teste realizados por tipo em <span class="unit">{{ unitName }}</span></h2>
+                <div *ngIf="testTypeData ? verifyObj(testTypeData.groupCountMap) : false" [chart]="barChart"></div>
+                <div *ngIf="testTypeData ? !verifyObj(testTypeData.groupCountMap) : true" style="text-align: center;">
+                    <img src="assets/images/no-data.png" alt="" style="margin-top:30px;height: 151px;width: auto;">
+                </div>
+            </div>
+            <div class="graph-pie">
+                <h2>Sobre realização de testes em <span class="unit">{{ unitName }}</span></h2>
+                <div *ngIf="testResultData ? verifyObj(testResultData.groupCountMap) : false" [chart]="chart"></div>
+                <div *ngIf="testResultData ? !verifyObj(testResultData.groupCountMap) : true" style="text-align: center;">
+                    <img src="assets/images/no-data.png" alt="" style="margin-top:30px;height: 151px;width: auto;">
+                </div>
+                <ul class="label" *ngIf="testResultData">
+                    <li *ngFor="let legend of createLegend()">{{ legend }}</li>
+                </ul>
+            </div>
+        </div>
+        <h2 *ngIf="testTypeLists ? testTypeLists.length : false">DETALHAMENTO DO GRÁFICO POR TIPO DOS TESTES</h2>
+        <app-drop-list
+            *ngFor="let type of testTypeLists"
+            [title]="type.type + ' em '" 
+            [unit]="unitName" 
+            [employees]="type.content"
+            [page]="'tested'" 
+            [type]="'all-list'"
+            [list]="type.type"
+            [filter]="type.filter"
+        ></app-drop-list>
+        <h2 *ngIf="testResultLists ? testResultLists.length : false">DETALHAMENTO DO GRÁFICO POR RESULTADO DOS TESTES</h2>
+        <app-drop-list
+            *ngFor="let result of testResultLists"
+            [title]="result.type + ' em '" 
+            [unit]="unitName" 
+            [employees]="result.content"
+            [page]="'tested'" 
+            [type]="'all-list'"
+            [list]="result.type"
+            [filter]="result.filter"
+        ></app-drop-list>
+        <div style="margin-bottom: 30px;"></div>
+    </div>
+</section>

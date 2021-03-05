@@ -1,0 +1,59 @@
+<section class="home container">
+    <app-status-bar [indicators]="indicators" (updateEvent)="update()"></app-status-bar>
+    <div class="page-head">
+        <app-page-title 
+            style="margin-right: 15%;" 
+            [title]="'TIVERAM CONTATO COM PESSOAS INFECTADAS'" 
+            [subtitle]="'Resumo com as principais informações geradas nas análises'" 
+            [icon]="'contacted'"
+        ></app-page-title>
+        <app-period-select style="margin-right: 30px;"></app-period-select>
+        <app-send-for-all [page]="'contacted'" [type]="'all'"></app-send-for-all>
+    </div>
+    <div class="animate__animated animate__slideInUp">
+        <div class="graph-row">
+            <div class="graph-bar">
+                <h2>Colaboradores que tiveram contato com pessoas infectadas em <span class="unit">{{ unitName }}</span></h2>
+                <div *ngIf="contactData ? verifyObj(contactData.groupCountMap) : false" [chart]="barChart"></div>
+                <div *ngIf="contactData ? !verifyObj(contactData.groupCountMap) : true" style="text-align: center;">
+                    <img src="assets/images/no-data.png" alt="" style="margin-top:30px;height: 151px;width: auto;">
+                </div>
+            </div>
+        </div>
+        <div class="graph-row">
+            <div class="graph-pie">
+                <h2>Pessoas do convívio tomam precauções em <span class="unit">{{ unitName }}</span></h2>
+                <div *ngIf="partnersData ? verifyObj(partnersData.groupCountMap) : false" [chart]="chart"></div>
+                <div *ngIf="partnersData ? !verifyObj(partnersData.groupCountMap) : true" style="text-align: center;">
+                    <img src="assets/images/no-data.png" alt="" style="margin-top:30px;height: 151px;width: auto;">
+                </div>
+                <ul class="label" *ngIf="partnersData">
+                    <li *ngFor="let legend of createLegend()">{{ legend === 'true' ? 'Sim' : 'Não' }}</li>
+                </ul>
+            </div>
+        </div>
+        <h2 *ngIf="contactLists ? contactLists.length : false">DETALHAMENTO DO GRÁFICO DE COLABORADORES EM CONTATO COM PESSOAS INFECTADAS</h2>
+        <app-drop-list
+            *ngFor="let type of contactLists"
+            [title]="type.type + ' em '" 
+            [unit]="unitName" 
+            [employees]="type.content"
+            [page]="'contacted'" 
+            [type]="'all-list'"
+            [list]="type.type"
+            [filter]="type.filter"
+        ></app-drop-list>
+        <h2 *ngIf="partnersLists ? partnersLists.length : false">DETALHAMENTO DO COLABORADORES QUE DECLARAM QUE AS PESSOAS DE CONVIVIO TOMAM AS PRECAUÇÕES</h2>
+        <app-drop-list
+            *ngFor="let result of partnersLists"
+            [title]="'Pessoas de convívio ' + (result.type === 'true' ? 'tomam' : 'não tomam') + ' as precauções em '" 
+            [unit]="unitName" 
+            [employees]="result.content"
+            [page]="'contacted'" 
+            [type]="'all-list'"
+            [list]="result.type"
+            [filter]="result.filter"
+        ></app-drop-list>
+        <div style="margin-bottom: 30px;"></div>
+    </div>
+</section>

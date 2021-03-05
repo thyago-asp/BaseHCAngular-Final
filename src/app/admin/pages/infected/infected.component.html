@@ -1,0 +1,39 @@
+<section class="home container">
+    <app-status-bar [indicators]="indicators" (updateEvent)="update()"></app-status-bar>
+    <div class="page-head">
+        <app-page-title 
+            style="margin-right: 15%;" 
+            [title]="'COLABORADORES INFECTADOS'" 
+            [subtitle]="'Resumo com as principais informações geradas nas análises'" 
+            [icon]="'infected'"
+        ></app-page-title>
+        <app-period-select style="margin-right: 30px;"></app-period-select>
+        <app-send-for-all [page]="'infected'" [type]="'all'"></app-send-for-all>
+    </div>
+    <div class="animate__animated animate__slideInUp">
+        <div class="graph-row">
+            <div class="graph-epi">
+                <h2>ciclo de infecção por período de diagnóstico em <span class="unit">{{ unitName }}</span></h2>
+                <div *ngIf="infectedData ? infectedData.groupCountList.length : false" [chart]="infectedChart"></div>
+                <div *ngIf="infectedData ? !infectedData.groupCountList.length : true" style="text-align: center;">
+                    <img src="assets/images/no-data.png" alt="" style="margin-top:30px;height: 151px;width: auto;">
+                </div>
+                <ul class="label" *ngIf="infectedData">
+                    <li *ngFor="let legend of createListLegend(infectedData)">{{ legend }}</li>
+                </ul>
+            </div>
+        </div>
+        <h2 *ngIf="infectedList ? infectedList.length ? true : false : false">Listagem de colaboradores por data da última triagem</h2>
+        <app-drop-list
+            *ngFor="let type of infectedList"
+            [title]="type.type + ' em '" 
+            [unit]="unitName" 
+            [employees]="type.content"
+            [page]="'infected'" 
+            [type]="'all-list'"
+            [list]="type.type"
+            [filter]="type.filter"
+        ></app-drop-list>
+        <div style="margin-bottom: 30px;"></div>
+    </div>
+</section>

@@ -1,0 +1,26 @@
+<div class="gender-graph">
+    <h2>Gênero em <span class="unit">{{ unit }}</span></h2>
+    <ul class="gender-list">
+        <li class="gender-list_item">
+            <img src="assets/images/grafico-genero-homem-blue.png" width="46" height="97" alt="Masculino">
+            <div class="gender men">
+                <p>HOMENS</p>
+                <p>{{ men ? men : '0' }}%</p>
+            </div>
+        </li>
+        <li class="gender-list_item">
+            <img src="assets/images/grafico-genero-mulher-pink.png" width="46" height="97" alt="Masculino">
+            <div class="gender women">
+                <p>MULHERES</p>
+                <p>{{ women ? women : '0' }}%</p>
+            </div>
+        </li>
+        <li class="gender-list_item">
+            <img src="assets/images/grafico-genero-outro-bluepink.png" width="46" height="97" alt="Masculino">
+            <div class="gender other">
+                <p>OUTROS GÊNEROS</p>
+                <p>{{ other ? other: '0' }}%</p>
+            </div>
+        </li>
+    </ul>
+</div>

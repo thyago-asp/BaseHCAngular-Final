@@ -1,0 +1,42 @@
+.period-select {
+    display: inline-block;
+    vertical-align: top;
+    h1 {
+        font-size: 12px;
+        line-height: normal;
+        color: #0880ae;
+        position: relative;
+        padding-left: 23px;
+        margin-bottom: 6px;
+        .icon-calendar {
+            position: absolute;
+            top: -4px;
+            left: 0;
+        }
+    }
+    p {
+        width: 260px;
+        font-size: 11px;
+        line-height: normal;
+        font-weight: 300;
+        letter-spacing: 0.12px;
+        color: #a7a5a8;
+    }
+    .period-select_item {
+        font-size: 11px;
+        line-height: normal;
+        font-weight: 300;
+        letter-spacing: 0.12px;
+        color: #a7a5a8;
+        display: inline-block;
+        margin-right: 13px;
+        cursor: pointer;
+        &.active {
+            color: #0880ae;
+            text-decoration: underline;
+        }
+        &:hover {
+            background-color: #e3e7e8;
+        }
+    }
+}

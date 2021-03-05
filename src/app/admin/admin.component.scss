@@ -1,0 +1,40 @@
+.admin-view {
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+    transition: all 0.7s ease;
+    height: calc(100vh - 73px);
+    overflow-y: scroll;
+    padding-left: 245px;
+    box-sizing: border-box;
+    &.hide {
+        padding-left: 40px;
+    }
+    &.full {
+        width: 100%;
+    }
+    .hc-logo {
+        height: 24px;
+        width: auto;
+        display: block;
+        margin: auto;
+        margin-bottom: 5px;
+    }
+    a {
+        line-height: 21px;
+        font-size: 18px;
+        font-weight: 300;
+        color: #1178c4;
+        text-decoration: none;
+    }
+    small {
+        font-size: 9px;
+        font-weight: 300;
+        line-height: 11px;
+        display: block;
+        text-align: center;
+    }
+}
+#msg-modal {
+    display: none;
+}

@@ -1,0 +1,99 @@
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+
+// Tablets and small desktops
+$screen-lg-min: 992px;
+
+// Large tablets and desktops
+$screen-xl-min: 1140px;
+
+@media only screen and (max-width: $screen-lg-min) {
+    .login .login-content .login-content_form,
+    .signup .signup-content .signup-content_form,
+    .forgot .forgot-content .forgot-content_form,
+    .newpass .newpass-content .newpass-content_form,
+    .signupsuc .signupsuc-content .signupsuc-content_form,
+    .welcome .welcome-content .welcome-content_form,
+    .history .history-content .history-content_form,
+    .newsuc .newsuc-content .newsuc-content_form {
+        text-align: left;
+    }
+}
+
+@media only screen and (max-width: $screen-md-min) {
+    .login .login-content .login-content_banner,
+    .signup .signup-content .signup-content_banner,
+    .forgot .forgot-content .forgot-content_banner,
+    .newpass .newpass-content .newpass-content_banner,
+    .signupsuc .signupsuc-content .signupsuc-content_banner,
+    .welcome .welcome-content .welcome-content_banner,
+    .history .history-content .history-content_banner,
+    .newsuc .newsuc-content .newsuc-content_banner {
+        width: 100%;
+    }
+    .login .login-content .login-content_form,
+    .signup .signup-content .signup-content_form,
+    .forgot .forgot-content .forgot-content_form,
+    .newpass .newpass-content .newpass-content_form,
+    .signupsuc .signupsuc-content .signupsuc-content_form,
+    .welcome .welcome-content .welcome-content_form,
+    .history .history-content .history-content_form,
+    .newsuc .newsuc-content .newsuc-content_form {
+        width: 100%;
+        text-align: center;
+    }
+    .login .login-content .login-content_banner .welcome-banner img,
+    .signup .signup-content .signup-content_banner .welcome-banner img,
+    .forgot .forgot-content .forgot-content_banner .welcome-banner img,
+    .newpass .newpass-content .newpass-content_banner .welcome-banner img,
+    .signupsuc .signupsuc-content .signupsuc-content_banner .welcome-banner img,
+    .welcome .welcome-content .welcome-content_banner .welcome-banner img,
+    .history .history-content .history-content_banner .history-banner img,
+    .newsuc .newsuc-content .newsuc-content_banner .newsuc-banner img {
+        width: 50%;
+        display: block;
+        margin: auto;
+    }
+}
+
+@media only screen and (max-width: $screen-sm-min) {
+    .login .login-content .login-content_banner .welcome-banner h1
+    .signup .signup-content .signup-content_banner .welcome-banner h1,
+    .forgot .forgot-content .forgot-content_banner .welcome-banner h1,
+    .newpass .newpass-content .newpass-content_banner .welcome-banner h1,
+    .signupsuc .signupsuc-content .signupsuc-content_banner .welcome-banner h1,
+    .welcome .welcome-content .welcome-content_banner .welcome-banner h1,
+    .history .history-content .history-content_banner .history-banner h1,
+    .newsuc .newsuc-content .newsuc-content_banner .newsuc-banner h1 {
+        font-size: 30px;
+    }
+    .login .login-content .login-content_form .login-content_form-holder,
+    .signup .signup-content .signup-content_form .signup-content_form-holder,
+    .forgot .forgot-content .forgot-content_form .forgot-content_form-holder,
+    .newpass .newpass-content .newpass-content_form .newpass-content_form-holder,
+    .signupsuc .signupsuc-content .signupsuc-content_form .signupsuc-content_form-holder,
+    .welcome .welcome-content .welcome-content_form .welcome-content_form-holder,
+    .history .history-content .history-content_form .history-content_form-holder,
+    .newsuc .newsuc-content .newsuc-content_form .newsuc-content_form-holder {
+        margin-top: 30px;
+        max-width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .login .login-content .login-content_form .login-content_form-holder .login-content_form-group,
+    .signup .signup-content .signup-content_form .signup-content_form-holder .signup-content_form-group,
+    .forgot .forgot-content .forgot-content_form .forgot-content_form-holder .forgot-content_form-group,
+    .newpass .newpass-content .newpass-content_form .newpass-content_form-holder .newpass-content_form-group,
+    .signupsuc .signupsuc-content .signupsuc-content_form .signupsuc-content_form-holder .signupsuc-content_form-group,
+    .welcome .welcome-content .welcome-content_form .welcome-content_form-holder .welcome-content_form-group,
+    .history .history-content .history-content_form .history-content_form-holder .history-content_form-group,
+    .newsuc .newsuc-content .newsuc-content_form .newsuc-content_form-holder .newsuc-content_form-group {
+        width: 90%;
+    } 
+    .btn-secondary {
+        padding: 0 15px;
+    }
+}

@@ -1,0 +1,57 @@
+<section class="home container">
+    <app-status-bar [indicators]="indicators" (updateEvent)="update()"></app-status-bar>
+    <div class="page-head">
+        <app-page-title 
+            style="margin-right: 15%;" 
+            [title]="'ONDE TRABALHAM'" 
+            [subtitle]="'Resumo com as principais informações geradas nas análises'" 
+            [icon]="'workplace'"
+        ></app-page-title>
+        <app-period-select style="margin-right: 30px;"></app-period-select>
+        <app-send-for-all [page]="'workplace'" [type]="'all'"></app-send-for-all>
+    </div>
+    <div class="animate__animated animate__slideInUp">
+        <div class="graph-row">
+            <div class="graph-map">
+                <h2>Distribuição por unidades organizacionais</h2>
+                <div *ngIf="stateData ? verifyObj(stateData.groupCountMap) : false" [chart]="mapChart"></div>
+                <div *ngIf="stateData ? !verifyObj(stateData.groupCountMap) : true" style="text-align: center;">
+                    <img src="assets/images/no-data.png" alt="" style="margin-top:30px;height: 151px;width: auto;">
+                </div>
+            </div>
+            <div class="graph-pie">
+                <h2>Local de trabalho em <span class="unit">{{ unitName }}</span></h2>
+                <div *ngIf="workplaceData ? verifyObj(workplaceData.groupCountMap) : false" [chart]="chart"></div>
+                <div *ngIf="workplaceData ? !verifyObj(workplaceData.groupCountMap) : true" style="text-align: center;">
+                    <img src="assets/images/no-data.png" alt="" style="margin-top:30px;height: 151px;width: auto;">
+                </div>
+                <ul class="label" *ngIf="workplaceData">
+                    <li *ngFor="let legend of createLegend()">{{ legend }}</li>
+                </ul>
+            </div>
+        </div>
+        <h2 *ngIf="workplaceLists ? workplaceLists.length : false">DETALHAMENTO DO GRÁFICO SOBRE LOCAL DE TRABALHO</h2>
+        <app-drop-list
+            *ngFor="let workplace of workplaceLists"
+            [title]="workplace.place + ' em '" 
+            [unit]="unitName" 
+            [employees]="workplace.content"
+            [page]="'workplace'" 
+            [type]="'all-list'"
+            [list]="workplace.type"
+            [filter]="workplace.filter"
+        ></app-drop-list>
+        <h2 *ngIf="stateLists ? stateLists.length : false">DETALHAMENTO DO GRÁFICO SOBRE COLABORADORES POR ESTADO</h2>
+        <app-drop-list
+            *ngFor="let state of stateLists"
+            [title]="'Colaboradores que moram em '" 
+            [unit]="state.state" 
+            [employees]="state.content"
+            [page]="'workplace'" 
+            [type]="'all-list'"
+            [list]="state.type"
+            [filter]="state.filter"
+        ></app-drop-list>
+        <div style="margin-bottom: 30px;"></div>
+    </div>
+</section>

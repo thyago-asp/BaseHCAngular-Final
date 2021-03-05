@@ -1,0 +1,50 @@
+<section class="login container">
+    <div class="login-content">
+        <div class="login-content_banner animate__animated animate__bounce">
+            <app-welcome-adm-banner></app-welcome-adm-banner>
+        </div>
+        <div class="login-content_form">
+            <div class="login-content_form-holder">
+                <app-ctg-adm-title></app-ctg-adm-title>
+                <div class="login-content_form-group animate__animated animate__fadeInRight">
+                    <form #dataForm="ngForm" novalidate>
+                        <div class="login-content_form-field">
+                            <span class="field-icon icon-user"></span>
+                            <input 
+                                type="text" 
+                                name="username" 
+                                id="username" 
+                                [(ngModel)]="username" 
+                                #user="ngModel" 
+                                pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,10})+$" 
+                                [ngClass]="{'filled': user.value }" 
+                                required
+                            >
+                            <label for="username">Email</label>
+                            <span class="info-icon icon-check" *ngIf="user.valid"></span>
+                        </div>
+                        <div class="login-content_form-field">
+                            <span class="field-icon icon-password"></span>
+                            <input type="password" name="password" id="password" [(ngModel)]="password" #pass="ngModel" required>
+                            <label for="password">Senha</label>
+                            <span class="info-icon icon-eye" (click)="togglePassView('password')"></span>
+                        </div>
+                    </form>
+                </div>
+                <div *ngIf="user.invalid && (user.dirty || user.touched)">
+                    <div *ngIf="user.errors.required" class="error-input">* o campo email é obrigatório</div>
+                    <div *ngIf="user.errors.pattern" class="error-input">* digite um email válido</div>
+                </div>
+                <div *ngIf="pass.invalid && (pass.dirty || pass.touched)">
+                    <div *ngIf="pass.errors.required" class="error-input">* o campo senha é obrigatório</div>
+                </div>
+                <div class="login-content_form-action animate__animated animate__fadeInRight">
+                    <button class="btn-primary" [disabled]="dataForm.invalid" (click)="login()">Entrar</button>
+                </div>
+                <div class="login-content_form-forgot animate__animated animate__fadeInRight">
+                    Se houver dificuldade para acessar contacte support@heartcare.life
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

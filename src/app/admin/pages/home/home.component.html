@@ -1,0 +1,54 @@
+<section class="home container">
+    <app-status-bar [indicators]="indicators" (updateEvent)="update()"></app-status-bar>
+    <div class="page-head">
+        <app-page-title 
+            style="margin-right: 15%;" 
+            [title]="'HOME ANALYTICS'" 
+            [subtitle]="'Resumo com as principais informações geradas nas análises'" 
+            [icon]="'analytics'"
+        ></app-page-title>
+        <app-period-select></app-period-select>
+    </div>
+    <div class="animate__animated animate__slideInDown">
+        <div class="graph-row">
+            <div class="graph-line" *ngFor="let chart of lineCharts;let i = index">
+                <h2>Fluxo na <span class="unit">{{ lineData.orgUnitSeries[i].orgUnit.orgUnitName }}</span></h2>
+                <div [chart]="chart"></div>
+                <!-- <ul class="label" *ngIf="epiData">
+                    <li *ngFor="let legend of createLegend(epiData)">{{ legend }}</li>
+                </ul> -->
+            </div>
+        </div>
+        <div class="graph-row" *ngIf="listData">
+            <div class="graph-list" *ngIf="listData.content.length">
+                <h2>Colaboradores com risco de agravamento em <span class="unit">{{ unitName }}</span></h2>
+                <div class="graph-list_holder">
+                    <div class="graph-list_employee" *ngFor="let employee of listData.content">
+                        <div class="employee-name" [ngClass]="{'man': employee.userGender === 'Masculino'}">{{ employee.userNameAbbr }}</div>
+                        <div class="employee-data">
+                            <p class="employee-data_status">{{ employee.userName ? employee.userName + ', ' + employee.userPhone + ', ' + employee.userEmail + ', ' : ''}}{{ employee.userGender }}, {{ employee.userAge }} anos, {{ employee.orgUnitName }}</p>
+                            <p class="employee-data_screening">{{ employee.result }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="graph-row" style="margin-bottom: 30px;">
+            <app-gender-graph 
+                class="graph-small" 
+                [men]="getPercent('Masculino')" 
+                [women]="getPercent('Feminino')" 
+                [other]="getPercent('Outro')"
+                [unit]="unitName"
+            ></app-gender-graph>
+            <div class="graph-big">
+                <h2>Faixa etária de colaboradores em <span class="unit">{{ unitName }}</span></h2>
+                <div class="age-chart" *ngFor="let chart of charts; let i = index">
+                    <p>{{ formatAge(ageList[i]) }}</p>
+                    <p class="total">{{ calcAgePercent(ageList[i]) }}%</p>
+                    <div [chart]="chart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,58 @@
+<ul id="navigator" class="navigator">
+    <li class="navigator-item" [ngClass]="{ 'active': isActive('home') }" (click)="navigate('admin/home')">
+        <div class="navigator-item_icon icon-analytics active" [ngClass]="{ 'active': isActive('home') }"></div>
+        <p>Home Analytics</p>
+    </li>
+    <li class="navigator-item" [ngClass]="{ 'active': isActive('lista-colaboradores') }" (click)="navigate('admin/lista-colaboradores')">
+        <div class="navigator-item_icon icon-workers" [ngClass]="{ 'active': isActive('lista-colaboradores') }"></div>
+        <p>Listagem de colaboradores</p>
+    </li>
+    <li class="navigator-item" [ngClass]="{ 'active': isActive('colaboradores-infectados') }" (click)="navigate('admin/colaboradores-infectados')">
+        <div class="navigator-item_icon icon-infected" [ngClass]="{ 'active': isActive('colaboradores-infectados') }"></div>
+        <p>Colaboradores infectados</p>
+    </li>
+    <li class="navigator-item" [ngClass]="{ 'active': isActive('teste-realizado') }" (click)="navigate('admin/teste-realizado')">
+        <div class="navigator-item_icon icon-tested" [ngClass]="{ 'active': isActive('teste-realizado') }"></div>
+        <p>Informações de testes</p>
+    </li>
+    <li class="navigator-item" [ngClass]="{ 'active': isActive('necessitam-teste') }" (click)="navigate('admin/necessitam-teste')">
+        <div class="navigator-item_icon icon-test-needed" [ngClass]="{ 'active': isActive('necessitam-teste') }"></div>
+        <p>Necessitam fazer o teste</p>
+    </li>
+    <li class="navigator-item" [ngClass]="{ 'active': isActive('probabilidades') }" (click)="navigate('admin/probabilidades')">
+        <div class="navigator-item_icon icon-probability" [ngClass]="{ 'active': isActive('probabilidades') }"></div>
+        <p>Probabilidades de infecção</p>
+    </li>
+    <li class="navigator-item" [ngClass]="{ 'active': isActive('contato-infectados') }" (click)="navigate('admin/contato-infectados')">
+        <div class="navigator-item_icon icon-contacted" [ngClass]="{ 'active': isActive('contato-infectados') }"></div>
+        <p>Tiveram contato com infectados</p>
+    </li>
+    <li class="navigator-item" [ngClass]="{ 'active': isActive('risco') }" (click)="navigate('admin/risco')">
+        <div class="navigator-item_icon icon-risk" [ngClass]="{ 'active': isActive('risco') }"></div>
+        <p>Níveis de risco</p>
+    </li>
+    <li class="navigator-item" [ngClass]="{ 'active': isActive('sintomas') }" (click)="navigate('admin/sintomas')">
+        <div class="navigator-item_icon icon-symptoms" [ngClass]="{ 'active': isActive('sintomas') }"></div>
+        <p>Sintomas de outras doenças</p>
+    </li>
+    <li class="navigator-item" [ngClass]="{ 'active': isActive('genero') }" (click)="navigate('admin/genero')">
+        <div class="navigator-item_icon icon-gender" [ngClass]="{ 'active': isActive('genero') }"></div>
+        <p>Gênero e faixa etária</p>
+    </li>
+    <li class="navigator-item" [ngClass]="{ 'active': isActive('comportamento') }" (click)="navigate('admin/comportamento')">
+        <div class="navigator-item_icon icon-home" [ngClass]="{ 'active': isActive('comportamento') }"></div>
+        <p>Moradia e comportamento</p>
+    </li>
+    <li class="navigator-item" [ngClass]="{ 'active': isActive('onde-trabalham') }" (click)="navigate('admin/onde-trabalham')">
+        <div class="navigator-item_icon icon-workplace" [ngClass]="{ 'active': isActive('onde-trabalham') }"></div>
+        <p>Onde trabalham</p>
+    </li>
+    <li class="navigator-item" [ngClass]="{ 'active': isActive('higiene') }" (click)="navigate('admin/higiene')">
+        <div class="navigator-item_icon icon-hygiene" [ngClass]="{ 'active': isActive('higiene') }"></div>
+        <p>Higiene medicamentos e epi's</p>
+    </li>
+    <li class="navigator-item" [ngClass]="{ 'active': isActive('engage') }" (click)="navigate('admin/engage')">
+        <div class="navigator-item_icon icon-engage" [ngClass]="{ 'active': isActive('engage') }"></div>
+        <p>Engajamento</p>
+    </li>
+</ul>

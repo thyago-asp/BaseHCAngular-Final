@@ -1,0 +1,44 @@
+<section class="home container">
+    <app-status-bar [indicators]="indicators" (updateEvent)="update()"></app-status-bar>
+    <div class="page-head">
+        <app-page-title 
+            style="margin-right: 15%;" 
+            [title]="'COLABORADORES POR GÊNERO E FAIXA ETÁRIA'" 
+            [subtitle]="'Resumo com as principais informações geradas nas análises'" 
+            [icon]="'gender'"
+        ></app-page-title>
+        <app-period-select style="margin-right: 30px;"></app-period-select>
+        <app-send-for-all [page]="'gender'" [type]="'all'"></app-send-for-all>
+    </div>
+    <div class="animate__animated animate__slideInUp">
+        <div class="graph-row">
+            <app-gender-graph 
+                class="graph-small" 
+                [men]="getPercent('Masculino')" 
+                [women]="getPercent('Feminino')" 
+                [other]="getPercent('Outro')"
+                [unit]="unitName"
+            ></app-gender-graph>
+            <div class="graph-big">
+                <h2>Faixa etária de colaboradores em <span class="unit">{{ unitName }}</span></h2>
+                <div class="age-chart" *ngFor="let chart of charts; let i = index">
+                    <p>{{ formatAge(ageList[i]) }}</p>
+                    <p class="total">{{ calcAgePercent(ageList[i]) }}%</p>
+                    <div [chart]="chart"></div>
+                </div>
+            </div>
+        </div>
+        <h2 *ngIf="genderList ? genderList.length : false">Detalhamento do gráfico sobre gênero</h2>
+        <app-drop-list
+            *ngFor="let gender of genderList"
+            [title]="generateTitle(gender.genderType)" 
+            [unit]="unitName" 
+            [employees]="gender.content"
+            [page]="'gender'" 
+            [type]="'all-list'"
+            [list]="gender.genderType"
+            [filter]="gender.filter"
+        ></app-drop-list>
+        <div style="margin-bottom: 30px;"></div>
+    </div>
+</section>

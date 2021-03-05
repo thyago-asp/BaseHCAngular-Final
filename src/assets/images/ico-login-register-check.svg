@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="19px" height="19px" viewBox="0 0 19 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>correct</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1.0-Login" transform="translate(-1491.000000, -383.000000)" fill-rule="nonzero">
+            <g id="correct" transform="translate(1491.000000, 383.000000)">
+                <path d="M19,9.5 C19,14.7511215 14.7503967,19 9.5,19 C4.24887849,19 0,14.7503967 0,9.5 C0,4.24887849 4.24960327,0 9.5,0 C14.7511215,0 19,4.24960327 19,9.5 Z" id="Path" fill="#1FA52C"></path>
+                <path d="M13.6994476,6.48558806 C13.9893646,6.77550506 13.9893646,7.24546052 13.6994476,7.53523256 L8.72041323,12.5144119 C8.43049623,12.8041839 7.96068572,12.8041839 7.67076873,12.5144119 L5.30055239,10.1440506 C5.01063539,9.85427856 5.01063539,9.3843231 5.30055239,9.0945511 C5.59032439,8.8046341 6.06027986,8.8046341 6.3500519,9.0945511 L8.19551848,10.9400177 L12.6498032,6.48558806 C12.9397201,6.19581606 13.4096756,6.19581606 13.6994476,6.48558806 L13.6994476,6.48558806 Z" id="Path" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>

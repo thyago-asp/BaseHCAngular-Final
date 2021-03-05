@@ -1,0 +1,31 @@
+<div class="status-bar">
+    <div class="status-bar_action status-bar_item">
+        <div class="status-bar_action-item" (click)="toggleNav()">
+            <div class="icon-menu"></div>
+        </div>
+        <div class="status-bar_action-item update-btn" (click)="update()">
+            <div class="icon-update" style="margin-top: 15px;"></div>
+            <p>atualizar</p>
+        </div>
+    </div>
+    <div class="status-bar_item">
+        <p class="status-bar_item-value">{{ indicators ? formatNumbers(indicators.employees) : '0' }}</p>
+        <p class="status-bar_item-text">Colaboradores</p>
+    </div>
+    <div class="status-bar_item">
+        <p class="status-bar_item-value">{{ indicators ? formatNumbers(indicators.screenings) : '0' }}</p>
+        <p class="status-bar_item-text">Triagens realizadas</p>
+    </div>
+    <div class="status-bar_item">
+        <p class="status-bar_item-value">{{ indicators ? formatNumbers(indicators.registeredData) : '0' }}</p>
+        <p class="status-bar_item-text">Dados registrados</p>
+    </div>
+    <div class="status-bar_item">
+        <p class="status-bar_item-value">{{ indicators ? formatNumbers(indicators.employeesRisk) : '0' }}</p>
+        <p class="status-bar_item-text">Colaboradores em risco</p>
+    </div>
+    <div class="status-bar_item status-bar_item-warning">
+        <p class="status-bar_item-value">{{ indicators ? formatNumbers(indicators.employeesInfected) : '0' }} <i class="icon-infected-red"></i></p>
+        <p class="status-bar_item-text">Colaboradores foram infectados</p>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="modal-overlay" (click)="closeModal()"></div>
+<div class="modal-body">
+    <div class="modal-body_title">
+        <h2>{{ title }}</h2>
+        <div class="icon-modal-close" (click)="closeModal()"></div>
+    </div>
+    <form #msgForm="ngForm" novalidate>
+        <textarea 
+            name="message" 
+            id="message" 
+            cols="78" 
+            rows="12" 
+            [(ngModel)]="message" 
+            #msg="ngModel" 
+            required
+        ></textarea>
+    </form>
+    <p>Esta mensagem será enviada para o email cadastrado pelo colaborador</p>
+    <div class="modal-body_action" *ngIf="msgForm.valid">
+        <div class="icon-modal-send" (click)="send()"></div>
+    </div>
+</div>

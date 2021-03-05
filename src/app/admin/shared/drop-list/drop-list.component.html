@@ -1,0 +1,21 @@
+<div class="drop-list" [ngClass]="{'active': dropListActive}">
+    <div class="drop-list_head">
+        <p *ngIf="employees.length" class="drop-list_name" (click)="toggle()">{{ title }} <span class="unit">{{ unit }}</span> <span class="drop-list_icon icon-drop"></span></p>
+        <p *ngIf="!employees.length" class="drop-list_name">Ainda não há registros com estas características, para este período.</p>
+        <app-send-for-all *ngIf="employees.length" [page]="page" [type]="type" [list]="list" [filter]="filter"></app-send-for-all>
+    </div>
+    <div class="drop-list_body">
+        <div class="drop-list_employee" *ngFor="let employee of employees">
+            <div class="employee-name" [ngClass]="{'man': employee.userGender === 'Masculino'}">{{ employee.userNameAbbr }}</div>
+            <div class="employee-data">
+                <p class="employee-data_status">{{ employee.userName ? employee.userName + ', ' + employee.userPhone + ', ' + employee.userEmail + ', ' : ''}}{{ employee.userGender }}, {{ employee.userAge }} anos, {{ employee.orgUnitName }}, {{ employee.result }}, {{ employee.riskScore }}.</p>
+                <p class="employee-data_screening">Data da última triagem: {{ employee.savedAt }}</p>
+            </div>
+            <div class="employee-send" (click)="openModal(employee.idUser)">
+                <h1><span class="icon-send active"></span> Enviar mensagem</h1>
+                <p>particular</p>
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>

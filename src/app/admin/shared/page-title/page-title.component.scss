@@ -1,0 +1,24 @@
+.page-title {
+    h1 {
+        font-size: 12px;
+        line-height: normal;
+        color: #0880ae;
+        position: relative;
+        padding-left: 23px;
+        margin-bottom: 6px;
+        text-transform: uppercase;
+        span {
+            position: absolute;
+            top: -4px;
+            left: 0;
+        }
+    }
+    p {
+        width: 260px;
+        font-size: 11px;
+        line-height: normal;
+        font-weight: 300;
+        letter-spacing: 0.12px;
+        color: #a7a5a8;
+    }
+}
